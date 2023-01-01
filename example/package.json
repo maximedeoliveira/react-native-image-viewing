@@ -8,19 +8,18 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "expo": "^44.0.0",
-    "expo-updates": "~0.11.6",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-44.0.0.tar.gz",
-    "react-native-web": "0.17.1"
+    "expo": "^47.0.0",
+    "expo-updates": "~0.15.6",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
+    "react-native": "0.70.5",
+    "react-native-web": "~0.18.7"
   },
   "devDependencies": {
-    "@expo/ngrok": "^4.1.0",
-    "@types/react": "~17.0.21",
-    "@types/react-native": "~0.64.12",
-    "babel-preset-expo": "9.0.2",
-    "typescript": "~4.3.5"
+    "@types/react": "^18.0.26",
+    "@types/react-native": "^0.70.8",
+    "babel-preset-expo": "~9.2.1",
+    "typescript": "^4.6.3"
   },
   "private": true
 }
