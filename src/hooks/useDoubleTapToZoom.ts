@@ -6,26 +6,26 @@
  *
  */
 
-import React, { useCallback } from "react";
+import React, { useCallback } from 'react';
 import {
   ScrollView,
   NativeTouchEvent,
   NativeSyntheticEvent,
-} from "react-native";
+} from 'react-native';
 
-import { Dimensions } from "../@types";
+import { Dimensions } from '../@types';
 
 let lastTapTS: number | null = null;
-let singleTapTimeout: number | null = null
+let singleTapTimeout: number | null = null;
 
 type Props = {
-  scrollViewRef: React.RefObject<ScrollView>,
-  scaled: boolean,
-  screen: Dimensions,
-  onPress: () => void,
-  doubleTapToZoomEnabled: boolean
-  doubleTapDelay: number
-}
+  scrollViewRef: React.RefObject<ScrollView>;
+  scaled: boolean;
+  screen: Dimensions;
+  onPress: () => void;
+  doubleTapToZoomEnabled: boolean;
+  doubleTapDelay: number;
+};
 
 /**
  * This is iOS only.
@@ -37,18 +37,22 @@ function useDoubleTapToZoom({
   screen,
   onPress,
   doubleTapToZoomEnabled,
-  doubleTapDelay
+  doubleTapDelay,
 }: Props) {
   return useCallback(
     (event: NativeSyntheticEvent<NativeTouchEvent>) => {
       if (singleTapTimeout) {
-        clearTimeout(singleTapTimeout)
+        clearTimeout(singleTapTimeout);
       }
 
       const nowTS = new Date().getTime();
       const scrollResponderRef = scrollViewRef?.current?.getScrollResponder();
 
-      if (doubleTapToZoomEnabled && lastTapTS && nowTS - lastTapTS < doubleTapDelay) {
+      if (
+        doubleTapToZoomEnabled &&
+        lastTapTS &&
+        nowTS - lastTapTS < doubleTapDelay
+      ) {
         const { pageX, pageY } = event.nativeEvent;
         let targetX = 0;
         let targetY = 0;
@@ -74,7 +78,7 @@ function useDoubleTapToZoom({
         });
       } else {
         lastTapTS = nowTS;
-        singleTapTimeout = setTimeout(onPress, doubleTapDelay)
+        singleTapTimeout = setTimeout(onPress, doubleTapDelay);
       }
     },
     [scaled, doubleTapToZoomEnabled, doubleTapDelay, onPress]
