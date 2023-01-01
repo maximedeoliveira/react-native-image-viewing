@@ -19,7 +19,7 @@
   "scripts": {
     "build": "tsc",
     "postversion": "yarn build",
-    "format": "prettier --write"
+    "format": "prettier --write \"./**/*.{ts,tsx,js,jsx,json,yaml,yml}\""
   },
   "peerDependencies": {
     "react": ">=16.11.0",

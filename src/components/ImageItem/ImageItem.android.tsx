@@ -6,7 +6,7 @@
  *
  */
 
-import React, { useCallback, useRef, useState } from "react";
+import React, { useCallback, useRef, useState } from 'react';
 
 import {
   Animated,
@@ -16,18 +16,18 @@ import {
   NativeScrollEvent,
   NativeSyntheticEvent,
   NativeMethodsMixin,
-} from "react-native";
+} from 'react-native';
 
-import useImageDimensions from "../../hooks/useImageDimensions";
-import usePanResponder from "../../hooks/usePanResponder";
+import useImageDimensions from '../../hooks/useImageDimensions';
+import usePanResponder from '../../hooks/usePanResponder';
 
-import { getImageStyles, getImageTransform } from "../../utils";
-import { ImageSource } from "../../@types";
-import { ImageLoading } from "./ImageLoading";
+import { getImageStyles, getImageTransform } from '../../utils';
+import { ImageSource } from '../../@types';
+import { ImageLoading } from './ImageLoading';
 
 const SWIPE_CLOSE_OFFSET = 75;
 const SWIPE_CLOSE_VELOCITY = 1.75;
-const SCREEN = Dimensions.get("window");
+const SCREEN = Dimensions.get('window');
 const SCREEN_WIDTH = SCREEN.width;
 const SCREEN_HEIGHT = SCREEN.height;
 
@@ -52,7 +52,7 @@ const ImageItem = ({
   delayLongPress,
   swipeToCloseEnabled = true,
   doubleTapToZoomEnabled = true,
-  doubleTapDelay
+  doubleTapDelay,
 }: Props) => {
   const imageContainer = useRef<ScrollView & NativeMethodsMixin>(null);
   const imageDimensions = useImageDimensions(imageSrc);
@@ -89,7 +89,7 @@ const ImageItem = ({
     onLongPress: onLongPressHandler,
     delayLongPress,
     onPress: onPressHandler,
-    doubleTapDelay
+    doubleTapDelay,
   });
 
   const imagesStyles = getImageStyles(
