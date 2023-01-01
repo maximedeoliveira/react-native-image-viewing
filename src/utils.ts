@@ -74,11 +74,13 @@ export const getImageStyles = (
     return { width: 0, height: 0 };
   }
 
-  const transform = translate.getTranslateTransform();
-
-  if (scale) {
-    transform.push({ scale }, { perspective: new Animated.Value(1000) });
-  }
+  const transform = scale
+    ? [
+        ...translate.getTranslateTransform(),
+        { scale },
+        { perspective: new Animated.Value(1000) },
+      ]
+    : translate.getTranslateTransform();
 
   return {
     width: image.width,
