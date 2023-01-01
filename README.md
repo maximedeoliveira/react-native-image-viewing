@@ -2,16 +2,11 @@
 
 > React Native modal component for viewing images as a sliding gallery.
 
-[![npm version](https://badge.fury.io/js/react-native-image-viewing.svg)](https://badge.fury.io/js/react-native-image-viewing)
-[![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
-
 - 🔥Pinch zoom for both iOS and Android
 - 🔥Double tap to zoom for both iOS and Android
 - 🔥Supports swipe-to-close animation
 - 🔥Custom header and footer components
 - 🔥Uses VirtualizedList to optimize image loading and rendering
-
-Try with Expo: https://expo.io/@antonkalinin/react-native-image-viewing
 
 <p align="center">
   <img src="https://github.com/jobtoday/react-native-image-viewing/blob/master/demo.gif?raw=true" height="480" />
@@ -56,7 +51,7 @@ const [visible, setIsVisible] = useState(false);
 />
 ```
 
-#### [See Example](https://github.com/jobtoday/react-native-image-viewing/blob/master/example/App.tsx#L62-L80)
+#### [See Example](https://github.com/maximedeoliveira/react-native-image-viewing/blob/master/example/App.tsx#L62-L80)
 
 ## Props
 
