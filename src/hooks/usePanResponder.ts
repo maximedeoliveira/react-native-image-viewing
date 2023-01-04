@@ -339,7 +339,6 @@ const usePanResponder = ({
     },
     onRelease: () => {
       cancelLongPressHandle();
-      cancelSinglePressTimer();
 
       if (isDoubleTapPerformed) {
         isDoubleTapPerformed = false;
