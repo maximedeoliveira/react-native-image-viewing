@@ -1,12 +1,16 @@
 {
-  "name": "react-native-image-viewing",
-  "version": "1.0.1",
+  "name": "@maximedeoliveira/react-native-image-viewing",
   "description": "React Native modal component for viewing images as a sliding gallery",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "author": "Maxime De Oliveira",
+  "license": "MIT",
+  "version": "1.0.1",
+  "homepage": "https://github.com/maximedeoliveira/react-native-image-viewing#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jobtoday/react-native-image-viewing.git"
+    "url": "git+https://github.com/maximedeoliveira/react-native-image-viewing.git"
+  },
+  "bugs": {
+    "url": "https://github.com/maximedeoliveira/react-native-image-viewing/issues"
   },
   "keywords": [
     "react",
@@ -16,26 +20,18 @@
     "image-gallery",
     "image-viewer"
   ],
-  "scripts": {
-    "build": "tsc",
-    "postversion": "yarn build",
-    "format": "prettier --write \"./**/*.{ts,tsx,js,jsx,json,yaml,yml}\""
-  },
-  "peerDependencies": {
-    "react": ">=16.12.0",
-    "react-native": ">=0.61.5"
-  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist",
     "readme.md",
     "package.json"
   ],
-  "author": "Anton Kalinin",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/jobtoday/react-native-image-viewing/issues"
+  "scripts": {
+    "build": "tsc",
+    "postversion": "yarn build",
+    "format": "prettier --write \"./**/*.{ts,tsx,js,jsx,json,yaml,yml}\""
   },
-  "homepage": "https://github.com/jobtoday/react-native-image-viewing#readme",
   "devDependencies": {
     "@babel/runtime": "7.7.4",
     "@types/react": "^18.0.26",
@@ -44,5 +40,9 @@
     "react": "16.12.0",
     "react-native": "0.61.5",
     "typescript": "4.9.4"
+  },
+  "peerDependencies": {
+    "react": ">=16.12.0",
+    "react-native": ">=0.61.5"
   }
 }
