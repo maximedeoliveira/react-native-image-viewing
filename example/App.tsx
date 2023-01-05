@@ -95,6 +95,7 @@ export default function App() {
         FooterComponent={({ imageIndex }) => (
           <ImageFooter imageIndex={imageIndex} imagesCount={images.length} />
         )}
+        blurRadius={Platform.OS === 'android' ? 10 : 15}
       />
       <ImageList
         images={food.map((image) => image.thumbnail)}
