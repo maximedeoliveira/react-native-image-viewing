@@ -44,6 +44,8 @@ type Props = {
   HeaderComponent?: ComponentType<{ imageIndex: number }>;
   FooterComponent?: ComponentType<{ imageIndex: number }>;
   doubleTapDelay?: number;
+  withBlurBackground?: boolean;
+  blurRadius?: number;
 };
 
 const DEFAULT_ANIMATION_TYPE = 'fade';
@@ -71,6 +73,8 @@ function ImageViewing({
   HeaderComponent,
   FooterComponent,
   doubleTapDelay = DEFAULT_DOUBLE_TAP_DELAY,
+  withBlurBackground = true,
+  blurRadius = 10,
 }: Props) {
   const imageList = useRef<VirtualizedList<ImageSource>>(null);
   const [opacity, onRequestCloseEnhanced] = useRequestClose(onRequestClose);
@@ -137,17 +141,26 @@ function ImageViewing({
             index,
           })}
           renderItem={({ item: imageSrc }) => (
-            <ImageItem
-              onZoom={onZoom}
-              imageSrc={imageSrc}
-              onRequestClose={onRequestCloseEnhanced}
-              onPress={onPress}
-              onLongPress={onLongPress}
-              delayLongPress={delayLongPress}
-              swipeToCloseEnabled={swipeToCloseEnabled}
-              doubleTapToZoomEnabled={doubleTapToZoomEnabled}
-              doubleTapDelay={doubleTapDelay}
-            />
+            <>
+              {withBlurBackground && (
+                <Animated.Image
+                  source={imageSrc}
+                  style={styles.absolute}
+                  blurRadius={blurRadius}
+                />
+              )}
+              <ImageItem
+                onZoom={onZoom}
+                imageSrc={imageSrc}
+                onRequestClose={onRequestCloseEnhanced}
+                onPress={onPress}
+                onLongPress={onLongPress}
+                delayLongPress={delayLongPress}
+                swipeToCloseEnabled={swipeToCloseEnabled}
+                doubleTapToZoomEnabled={doubleTapToZoomEnabled}
+                doubleTapDelay={doubleTapDelay}
+              />
+            </>
           )}
           onMomentumScrollEnd={onScroll}
           //@ts-ignore
@@ -177,6 +190,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#000',
+  },
+  absolute: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
   },
   header: {
     position: 'absolute',
