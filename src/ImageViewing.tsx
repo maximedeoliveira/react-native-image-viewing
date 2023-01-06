@@ -46,6 +46,7 @@ type Props = {
   doubleTapDelay?: number;
   withBlurBackground?: boolean;
   blurRadius?: number;
+  blurOverlayColor?: string;
 };
 
 const DEFAULT_ANIMATION_TYPE = 'fade';
@@ -75,12 +76,17 @@ function ImageViewing({
   doubleTapDelay = DEFAULT_DOUBLE_TAP_DELAY,
   withBlurBackground = true,
   blurRadius = 10,
+  blurOverlayColor,
 }: Props) {
   const imageList = useRef<VirtualizedList<ImageSource>>(null);
   const [opacity, onRequestCloseEnhanced] = useRequestClose(onRequestClose);
   const [currentImageIndex, onScroll] = useImageIndexChange(imageIndex, SCREEN);
   const [headerTransform, footerTransform, toggleBarsVisible] =
     useAnimatedComponents();
+
+  const blurOverlayStyle = withBlurBackground && blurOverlayColor
+      ? { backgroundColor: blurOverlayColor }
+      : {}
 
   useEffect(() => {
     if (onImageIndexChange) {
@@ -149,17 +155,19 @@ function ImageViewing({
                   blurRadius={blurRadius}
                 />
               )}
-              <ImageItem
-                onZoom={onZoom}
-                imageSrc={imageSrc}
-                onRequestClose={onRequestCloseEnhanced}
-                onPress={onPress}
-                onLongPress={onLongPress}
-                delayLongPress={delayLongPress}
-                swipeToCloseEnabled={swipeToCloseEnabled}
-                doubleTapToZoomEnabled={doubleTapToZoomEnabled}
-                doubleTapDelay={doubleTapDelay}
-              />
+              <View style={blurOverlayStyle}>
+                <ImageItem
+                  onZoom={onZoom}
+                  imageSrc={imageSrc}
+                  onRequestClose={onRequestCloseEnhanced}
+                  onPress={onPress}
+                  onLongPress={onLongPress}
+                  delayLongPress={delayLongPress}
+                  swipeToCloseEnabled={swipeToCloseEnabled}
+                  doubleTapToZoomEnabled={doubleTapToZoomEnabled}
+                  doubleTapDelay={doubleTapDelay}
+                />
+              </View>
             </>
           )}
           onMomentumScrollEnd={onScroll}
