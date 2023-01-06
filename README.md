@@ -55,27 +55,28 @@ const [visible, setIsVisible] = useState(false);
 
 ## Props
 
-| Prop name                | Description                                                                                        | Type                                                        | Required |
-|--------------------------|----------------------------------------------------------------------------------------------------|-------------------------------------------------------------| -------- |
-| `images`                 | Array of images to display                                                                         | ImageSource[]                                               | true     |
-| `keyExtractor`           | Uniqely identifying each image                                                                     | (imageSrc: ImageSource, index: number) => string            | false |
-| `imageIndex`             | Current index of image to display                                                                  | number                                                      | true     |
-| `visible`                | Is modal shown or not                                                                              | boolean                                                     | true     |
-| `onRequestClose`         | Function called to close the modal                                                                 | function                                                    | true     |
-| `onImageIndexChange`     | Function called when image index has been changed                                                  | function                                                    | false    |
-| `onLongPress`            | Function called when image long pressed                                                            | function (event: GestureResponderEvent, image: ImageSource) | false    |
-| `delayLongPress`         | Delay in ms, before onLongPress is called: default `800`                                           | number                                                      | false    |
-| `animationType`          | Animation modal presented with: default `fade`                                                     | `none`, `fade`, `slide`                                     | false    |
+| Prop name                | Description                                                                                         | Type                                                        | Required |
+|--------------------------|-----------------------------------------------------------------------------------------------------|-------------------------------------------------------------| -------- |
+| `images`                 | Array of images to display                                                                          | ImageSource[]                                               | true     |
+| `keyExtractor`           | Uniqely identifying each image                                                                      | (imageSrc: ImageSource, index: number) => string            | false |
+| `imageIndex`             | Current index of image to display                                                                   | number                                                      | true     |
+| `visible`                | Is modal shown or not                                                                               | boolean                                                     | true     |
+| `onRequestClose`         | Function called to close the modal                                                                  | function                                                    | true     |
+| `onImageIndexChange`     | Function called when image index has been changed                                                   | function                                                    | false    |
+| `onLongPress`            | Function called when image long pressed                                                             | function (event: GestureResponderEvent, image: ImageSource) | false    |
+| `delayLongPress`         | Delay in ms, before onLongPress is called: default `800`                                            | number                                                      | false    |
+| `animationType`          | Animation modal presented with: default `fade`                                                      | `none`, `fade`, `slide`                                     | false    |
 | `presentationStyle`      | Modal presentation style: default: `fullScreen` **Android:** Use `overFullScreen` to hide StatusBar | `fullScreen`, `pageSheet`, `formSheet`, `overFullScreen`    | false    |
-| `backgroundColor`        | Background color of the modal in HEX (#000000EE)                                                   | string                                                      | false    |
-| `swipeToCloseEnabled`    | Close modal with swipe up or down: default `true`                                                  | boolean                                                     | false    |
-| `doubleTapToZoomEnabled` | Zoom image by double tap on it: default `true`                                                     | boolean                                                     | false    |
-| `HeaderComponent`        | Header component, gets current `imageIndex` as a prop                                              | component, function                                         | false    |
-| `FooterComponent`        | Footer component, gets current `imageIndex` as a prop                                              | component, function                                         | false    |
-| `onPress`                | Function called when image is single pressed                                                       | function (image: ImageSource)                               | false    |
-| `doubleTapDelay`         | Delay in ms, to handle multiple taps: default `300`                                                | number                                                      | false    |    
-| `withBlurBackground`     | Add a blur background: default `true`                                                              | boolean                                                     | false    |    
-| `blurRadius`             | The blur radius of the blur filter added to the image: default `10`                                | number                                                      | false    |    
+| `backgroundColor`        | Background color of the modal in HEX (#000000EE)                                                    | string                                                      | false    |
+| `swipeToCloseEnabled`    | Close modal with swipe up or down: default `true`                                                   | boolean                                                     | false    |
+| `doubleTapToZoomEnabled` | Zoom image by double tap on it: default `true`                                                      | boolean                                                     | false    |
+| `HeaderComponent`        | Header component, gets current `imageIndex` as a prop                                               | component, function                                         | false    |
+| `FooterComponent`        | Footer component, gets current `imageIndex` as a prop                                               | component, function                                         | false    |
+| `onPress`                | Function called when image is single pressed                                                        | function (image: ImageSource)                               | false    |
+| `doubleTapDelay`         | Delay in ms, to handle multiple taps: default `300`                                                 | number                                                      | false    |    
+| `withBlurBackground`     | Add a blur background: default `true`                                                               | boolean                                                     | false    |    
+| `blurRadius`             | The blur radius of the blur filter added to the image: default `10`                                 | number                                                      | false    |    
+| `blurOverlayColor`       | A string that represent a color. You should use a transparency color.                               | string                                                      | false    |    
 
 - type ImageSource = ImageURISource | ImageRequireSource
 

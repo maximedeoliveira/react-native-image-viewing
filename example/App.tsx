@@ -96,6 +96,7 @@ export default function App() {
           <ImageFooter imageIndex={imageIndex} imagesCount={images.length} />
         )}
         blurRadius={Platform.OS === 'android' ? 10 : 15}
+        blurOverlayColor='rgba(0, 0, 0, .5)'
       />
       <ImageList
         images={food.map((image) => image.thumbnail)}
